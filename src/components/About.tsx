@@ -1,91 +1,17 @@
-import React, { useEffect } from 'react';
-import { motion, Variants } from "framer-motion";
-
+import React, { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import utilStyles from '@/app/utils.module.scss';
 
-import { Button } from '@/components/ui/button';
 import { SiGithub } from "react-icons/si";
 import { SiLinkedin } from "react-icons/si";
 import { MdOutlineEmail } from "react-icons/md";
 import { IoMdDownload } from "react-icons/io";
 import { RiSoundcloudLine } from "react-icons/ri";
 
-import SectionHeader from '@/components/SectionHeader';
 import Separator from '@/components/Separator';
-// import dynamic from 'next/dynamic';
+import AnimateOnScroll from '@/components/AnimateOnScroll';
 
-// const Spiral = dynamic(() => import('@/components/Spiral'))
-
-// interface Props {
-//     pSection: HTMLDivElement;
-// }
-
-// const sectionVariants: Variants = {
-//     offscreen: {
-//       y: 300
-//     },
-//     onscreen: {
-//       y: 50,
-//       rotate: -10,
-//       transition: {
-//         type: "spring",
-//         bounce: 0.4,
-//         duration: 0.8
-//       }
-//     }
-//   };
-
-// function SlideSection( {pSection}: Props ) {
-//     return (
-//         <>
-//     <motion.div
-//       className="left-right"
-//       initial="offscreen"
-//       whileInView="onscreen"
-//       viewport={{ once: true, amount: 0.8 }}
-//     >
-//       <motion.div className="card" variants={sectionVariants}>
-//         {pSection}
-//       </motion.div>
-//     </motion.div>
-//         </>
-//     )
-// }
-
-// function Expertise() {
-//     return (
-//         <div className="max-w-3xl">
-//             <div className="py-20 slider">
-//                 <h2 className="text-3xl">Expertise</h2>
-//                 <Separator width="max-w-2xl" />
-//                 <pre className={`${utilStyles.tab}`}>
-//                     <span className="underline underline-offset-8 decoration-indigo-500">Languages</span>
-//                     <br/>////   C++, C#, Python, Javascript, Typescript, SQL
-//                     <br/><br/>
-//                     <span className="underline underline-offset-8 decoration-indigo-500">Backend + Data</span>
-//                     <br/>////   NodeJS, PostgreSQL, Kafka, Spark, SparkMlib, Pandas, Airflow
-//                     <br/><br/>
-//                     <span className="underline underline-offset-8 decoration-indigo-500">Frontend + UI</span>
-//                     <br/>////   HTML, CSS, NextJS, React, Svelte, Windows Forms, WPF
-//                     <br/><br/>
-//                     <span className="underline underline-offset-8 decoration-indigo-500">Cloud</span>
-//                     <br/>////   Docker, Kubernetes, Terraform
-//                     <br/>////   AWS: VPC, Route53, EC2, Lambda, Glue, EKS, ECS, RDS, Redshift
-//                     <br/>////   GCP:
-//                     <br/><br/>
-//                     <span className="underline underline-offset-8 decoration-indigo-500">Prototyping</span>
-//                     <br/>////   Figma, Max/MSP, Pure Data
-//                     <br/><br/>
-//                     <span className="underline underline-offset-8 decoration-indigo-500">Audio</span>
-//                     <br/>////   JUCE, Max/MSP
-//                     <br/><br/>
-//                 </pre>
-//             </div>
-//         </div>
-//     )
-// }
 
 export default function About() {
 
@@ -159,91 +85,98 @@ export default function About() {
                                     </Link>
                                 })} 
                             </div>
-                    {/* <SlideSection pSection={ Expertise() } /> */}
-                    <div className="left-right max-w-3xl">
-                        <div className="py-20 slider">
-                            <h2 className="text-3xl">Expertise</h2>
-                            <Separator width="max-w-2xl" />
-                            <pre className={`${utilStyles.tab}`}>
-                                <span className="underline underline-offset-8 decoration-indigo-500">Languages</span>
-                                <br/>////   C++, C#, Python, Javascript, Typescript, SQL
-                                <br/><br/>
-                                <span className="underline underline-offset-8 decoration-indigo-500">Backend + Data</span>
-                                <br/>////   NodeJS, PostgreSQL, Kafka, Spark, SparkMlib, Pandas, Airflow
-                                <br/><br/>
-                                <span className="underline underline-offset-8 decoration-indigo-500">Frontend + UI</span>
-                                <br/>////   HTML, CSS, NextJS, React, Svelte, Windows Forms, WPF
-                                <br/><br/>
-                                <span className="underline underline-offset-8 decoration-indigo-500">Cloud</span>
-                                <br/>////   Docker, Kubernetes, Terraform
-                                <br/>////   AWS: VPC, Route53, EC2, Lambda, Glue, EKS, ECS, RDS, Redshift
-                                <br/>////   GCP:
-                                <br/><br/>
-                                <span className="underline underline-offset-8 decoration-indigo-500">Prototyping</span>
-                                <br/>////   Figma, Max/MSP, Pure Data
-                                <br/><br/>
-                                <span className="underline underline-offset-8 decoration-indigo-500">Audio</span>
-                                <br/>////   JUCE, Max/MSP
-                                <br/><br/>
-                            </pre>
+                    <AnimateOnScroll>
+                        {/* <div className="left-right max-w-3xl"> */}
+                            {/* <div className="py-20 slider"> */}
+                        <div className="max-w-3xl">
+                            <div className="py-20">
+                                <h2 className="text-3xl">Expertise</h2>
+                                <Separator width="max-w-2xl" />
+                                <pre className={`${utilStyles.tab}`}>
+                                    <span className="underline underline-offset-8 decoration-indigo-500">Languages</span>
+                                    <br/>////   C++, C#, Python, Javascript, Typescript, SQL
+                                    <br/><br/>
+                                    <span className="underline underline-offset-8 decoration-indigo-500">Backend + Data</span>
+                                    <br/>////   NodeJS, PostgreSQL, Kafka, Spark, SparkMlib, Pandas, Airflow
+                                    <br/><br/>
+                                    <span className="underline underline-offset-8 decoration-indigo-500">Frontend + UI</span>
+                                    <br/>////   HTML, CSS, NextJS, React, Svelte, Windows Forms, WPF
+                                    <br/><br/>
+                                    <span className="underline underline-offset-8 decoration-indigo-500">Cloud</span>
+                                    <br/>////   Docker, Kubernetes, Terraform
+                                    <br/>////   AWS: VPC, Route53, EC2, Lambda, Glue, EKS, ECS, RDS, Redshift
+                                    <br/>////   GCP:
+                                    <br/><br/>
+                                    <span className="underline underline-offset-8 decoration-indigo-500">Prototyping</span>
+                                    <br/>////   Figma, Max/MSP, Pure Data
+                                    <br/><br/>
+                                    <span className="underline underline-offset-8 decoration-indigo-500">Audio</span>
+                                    <br/>////   JUCE, Max/MSP
+                                    <br/><br/>
+                                </pre>
+                            </div>
                         </div>
-                    </div>
-                    <div className="py-20">
-                        <h2 className="text-3xl">Experience</h2>
-                        <Separator width="max-w-2xl" />
-                            <h4 className="">
-                                <span>2021 - 2024</span> 
-                                <span className="text-indigo-600"> // </span> 
-                                Casual Precision
-                                <span className="text-indigo-600"> // </span>
-                                Director of Engineering
-                            </h4>
-                            <p className="py-3">
-                                yadda yadda
+                    </AnimateOnScroll>
+                    <AnimateOnScroll>
+                        <div className="py-20">
+                            <h2 className="text-3xl">Experience</h2>
+                            <Separator width="max-w-2xl" />
+                                <h4 className="">
+                                    <span>2021 - 2024</span> 
+                                    <span className="text-indigo-600"> // </span> 
+                                    Casual Precision
+                                    <span className="text-indigo-600"> // </span>
+                                    Director of Engineering
+                                </h4>
+                                <p className="py-3">
+                                    yadda yadda
+                                </p>
+                            <div className="py-3"><Separator width="max-w-md" /></div>
+                                <h4 className="">
+                                    <span>2020 - 2021</span> 
+                                    <span className="text-indigo-600"> // </span> 
+                                    Casual Precision
+                                    <span className="text-indigo-600"> // </span>
+                                    Lead Data Engineer
+                                </h4>
+                                <p className="py-3">
+                                    yadda yadda
+                                </p>
+                            <div className="py-3"><Separator width="max-w-md" /></div>
+                                <h4 className="">
+                                    <span>2019 - 2020</span> 
+                                    <span className="text-indigo-600"> // </span> 
+                                    Belcan (GE Aviation)
+                                    <span className="text-indigo-600"> // </span>
+                                    Embedded Software Test Engineer
+                                </h4>
+                                <p className="py-3">
+                                    yadda yadda
+                                </p>
+                            <div className="py-3"><Separator width="max-w-md" /></div>
+                                <h4 className="">
+                                    <span>2018 - 2019</span> 
+                                    <span className="text-indigo-600"> // </span> 
+                                    Western Diversified Plastics
+                                    <span className="text-indigo-600"> // </span>
+                                    Test Lab Technician
+                                </h4>
+                                <p className="py-3 text-sm">
+                                    
+                                </p>
+                        </div>
+                    </AnimateOnScroll>
+                    <AnimateOnScroll>
+                        <div className="py-10">
+                            <h2 className="text-3xl">Education</h2>
+                            <Separator width="max-w-2xl" />
+                            <p>
+                                <span className="font-bold">Western Michigan University</span>
+                                <br/> Bachelor of Science, Electrical Engineering // 2019
+                                {/* <br/> <small>Minor in Mathematics</small> */}
                             </p>
-                        <div className="py-3"><Separator width="max-w-md" /></div>
-                            <h4 className="">
-                                <span>2020 - 2021</span> 
-                                <span className="text-indigo-600"> // </span> 
-                                Casual Precision
-                                <span className="text-indigo-600"> // </span>
-                                Lead Data Engineer
-                            </h4>
-                            <p className="py-3">
-                                yadda yadda
-                            </p>
-                        <div className="py-3"><Separator width="max-w-md" /></div>
-                            <h4 className="">
-                                <span>2019 - 2020</span> 
-                                <span className="text-indigo-600"> // </span> 
-                                Belcan (GE Aviation)
-                                <span className="text-indigo-600"> // </span>
-                                Embedded Software Test Engineer
-                            </h4>
-                            <p className="py-3">
-                                yadda yadda
-                            </p>
-                        <div className="py-3"><Separator width="max-w-md" /></div>
-                            <h4 className="">
-                                <span>2018 - 2019</span> 
-                                <span className="text-indigo-600"> // </span> 
-                                Western Diversified Plastics
-                                <span className="text-indigo-600"> // </span>
-                                Test Lab Technician
-                            </h4>
-                            <p className="py-3 text-sm">
-                                
-                            </p>
-                    </div>
-                    <div className="py-10">
-                        <h2 className="text-3xl">Education</h2>
-                        <Separator width="max-w-2xl" />
-                        <p>
-                            <span className="font-bold">Western Michigan University</span>
-                            <br/> Bachelor of Science, Electrical Engineering // 2019
-                            {/* <br/> <small>Minor in Mathematics</small> */}
-                        </p>
-                    </div>
+                        </div>
+                    </AnimateOnScroll>
                 </section>
             </div>
         </>
