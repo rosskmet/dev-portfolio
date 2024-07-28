@@ -1,0 +1,118 @@
+.heading2Xl {
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+    font-weight: 800;
+    letter-spacing: -0.05rem;
+    margin: 1rem 0;
+  }
+  
+  .headingXl {
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1.3;
+    font-weight: 800;
+    letter-spacing: -0.05rem;
+    margin: 1rem 0;
+  }
+  
+  .headingLg {
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1.4;
+    margin: 1rem 0;
+  }
+  
+  .headingMd {
+    font-size: 1.2rem;
+    line-height: 1.5;
+  }
+  
+  .borderCircle {
+    border-radius: 9999px;
+  }
+  
+  .colorInherit {
+    color: inherit;
+  }
+  
+  .padding1px {
+    padding-top: 1px;
+  }
+  
+  .list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .listItem {
+    margin: 0 0 1.25rem;
+  }
+  
+  .lightText {
+    color: #666;
+  }
+  
+  .success {
+    color: limegreen;
+  }
+  
+  .error {
+    color: crimson;
+  }
+
+.tab {
+  tab-size: 4;
+}
+
+.goober {
+  cursor: pointer;
+  transition: 1s ease;
+  color: linear-gradient(90deg, white, pink, orange, green);
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+.goober:hover {
+  color: transparent;
+  transition: 500ms ease;
+} 
+
+.spiral {
+  z-index: -1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  pointer-events: none;
+}
+
+.in-front {
+  z-index: 100;
+  position: static;
+  top: 0;
+  left: 0;
+  opacity: 1;
+}
+
+.expertise{
+  transition-delay: 1s;
+}
+
+.expertise:focus-visible #slide {
+  transition: 1s;
+  left: 0;
+}
+
+#slide {
+  position: absolute;
+  left: -100px;
+  width: 100px;
+  height: 100px;
+  // background: blue;
+  -webkit-animation: slide 0.5s forwards;
+  -webkit-animation-delay: 2s;
+  animation: slide 0.5s forwards;
+  animation-delay: 2s;
+}
